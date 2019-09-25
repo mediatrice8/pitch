@@ -47,3 +47,27 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
+#category model
+class PitchCategory(db.Model):
+
+    __tablename__ = 'categories'
+
+    # table columns
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+    # save pitches
+    def save_category(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_categories(cls):
+        categories = PitchCategory.query.all()
+        return categories
+    @classmethod
+    def clear_categories(cls):
+        PitchCategory.all_categories.clear()
+
+
