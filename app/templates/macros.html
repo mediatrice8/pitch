@@ -1,6 +1,6 @@
 {% macro displayCategoryList(category_list) %}
   {% for category in category_list%}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 category-card">
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 category-card" style="background-color: black">
           <a href="{{url_for('.category',id=category.id)}}"><p>{{category.name|upper}}</p></a>
         </div>
 
